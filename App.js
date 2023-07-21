@@ -1,12 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, SafeAreaView } from 'react-native';
+import useProdutores from './src/hooks/useProdutores';
 import Home from './src/telas/Home';
+import Cesta from './src/telas/Cesta';
 
 export default function App() {
+  const produtores = useProdutores(false);
+
   return (
     <SafeAreaView style={styles.tela}>
-      <Home/>
       <StatusBar style="auto" />
+      {/* <Home melhoresProdutores={false} /> */}
+      {produtores.length > 0 && 
+        <Cesta produtor={{
+          nome: produtores[0].nome, 
+          imagem: produtores[0].imagem
+        }}
+        {...produtores[0].cestas[0]} />
+      }
     </SafeAreaView>
   );
 }
