@@ -35,6 +35,5 @@ export default function Estrelas({
 const estilos = StyleSheet.create({
   estrelas: {
     flexDirection: "row",
-    marginRight: 2,
   },
 });

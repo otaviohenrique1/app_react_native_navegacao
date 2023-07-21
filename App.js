@@ -10,14 +10,14 @@ export default function App() {
   return (
     <SafeAreaView style={styles.tela}>
       <StatusBar style="auto" />
-      {/* <Home melhoresProdutores={false} /> */}
-      {produtores.length > 0 && 
+      <Home melhoresProdutores={false} />
+      {/* {produtores.length > 0 && 
         <Cesta produtor={{
           nome: produtores[0].nome, 
           imagem: produtores[0].imagem
         }}
         {...produtores[0].cestas[0]} />
-      }
+      } */}
     </SafeAreaView>
   );
 }
