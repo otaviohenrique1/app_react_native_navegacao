@@ -1,41 +1,38 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialIcons } from '@expo/vector-icons';
 import ProdutorRotas from './ProdutorRotas';
 import MelhoresProdutoresRotas from './MelhoresProdutorRotas';
+import Coracao from "../assets/coracao.svg";
+import Home from "../assets/home.svg";
 
 const Tab = createBottomTabNavigator();
 
 export default function AppRotas() {
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{
+      <Tab.Navigator screenOptions={({ route }) => ({
         headerShown: false,
+        tabBarActiveTintColor: "#2A9F85",
+        tabBarInactiveTintColor: "#C7C7C7",
         tabBarLabelStyle: {
-          fontSize: 14,
+          fontSize: 15,
         },
-        tabBarStyle: {
-          height: 50,
-        },
-      }}>
+        tabBarIcon: ({ color }) => {
+          let Icon = Home;
+          if (route.name == "Melhores Produtores") {
+            Icon = Coracao;
+          }
+          return <Icon color={color} width={20} height={20} />
+        }
+      })}>
         <Tab.Screen
           name='Home'
           component={ProdutorRotas}
-          options={{
-            tabBarIcon: () => (
-              <MaterialIcons name="home" size={22} color="black" />
-            )
-          }}
         />
         <Tab.Screen
           name='Melhores Produtores'
           component={MelhoresProdutoresRotas}
-          options={{
-            tabBarIcon: () => (
-              <MaterialIcons name="favorite" size={22} color="black" />
-            ),
-          }}
         />
       </Tab.Navigator>
     </NavigationContainer>
