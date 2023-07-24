@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import MelhoresProdutores from '../telas/MelhoresProdutores';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
 import ProdutorRotas from './ProdutorRotas';
+import MelhoresProdutoresRotas from './MelhoresProdutorRotas';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,7 +30,7 @@ export default function AppRotas() {
         />
         <Tab.Screen
           name='Melhores Produtores'
-          component={MelhoresProdutores}
+          component={MelhoresProdutoresRotas}
           options={{
             tabBarIcon: () => (
               <MaterialIcons name="favorite" size={22} color="black" />
