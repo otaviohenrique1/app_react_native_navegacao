@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import AppRotas from './src/routes/AppRotas';
+import 'react-native-gesture-handler';
 
 export default function App() {
 
