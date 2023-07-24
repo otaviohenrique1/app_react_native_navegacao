@@ -1,12 +1,19 @@
-import { useRoute, StyleSheet } from '@react-navigation/native';
 import React from 'react';
-import { Text } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
+import { useRoute, } from '@react-navigation/native';
+import Cesta from './componentes/Cesta';
 
 export default function Produtor() {
   const route = useRoute();
+  const { nome, imagem, cestas } = route.params;
 
   return (
-    <Text>Produtor</Text>
+    <FlatList
+      data={cestas}
+      renderItem={({ item }) => (
+        <Cesta {...item} produtor={{ nome, imagem }} />
+      )}
+    />
   );
 }
 
