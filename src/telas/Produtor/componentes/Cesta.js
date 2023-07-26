@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/native';
 
 import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import Texto from '../../../components/Texto';
@@ -10,7 +10,9 @@ export default function Cesta({ detalhes, itens, produtor }) {
 
   return <TouchableOpacity
     style={estilos.cesta}
-    onPress={() => { }}>
+    onPress={() => navigation.navigate("Cesta", {
+      detalhes, itens, produtor
+    })}>
     <View style={estilos.conteudo}>
       <Image source={imagem} style={estilos.imagem} />
 
